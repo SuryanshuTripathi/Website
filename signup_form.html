@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up Form</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <form id="signupForm" action="https://forms.maakeetoo.com" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="comments">Order Comments</label>
+                <textarea class="form-control" id="comments" name="order_comments" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="userRange">Number of Users:</label>
+                <input type="range" class="form-control-range" id="userRange" name="num_users" min="0" max="100" step="10" value="0">
+            </div>
+            <div class="form-group">
+                <label for="selectedPlan">Selected Plan:</label>
+                <input type="text" class="form-control" id="selectedPlan" name="selected_plan" disabled>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <!-- Submitted message section -->
+        <div id="submittedMessage" class="mt-3" style="display: none;">
+            <div class="alert alert-success" role="alert">
+                <h3>Form Submitted Successfully!</h3>
+                <p>Thank you for signing up!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery links here -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript code to populate the sign-up form from local storage and show "Submitted" message -->
+    <script>
+        $(document).ready(function () {
+            var formData = JSON.parse(localStorage.getItem("formData"));
+            if (formData) {
+                $("#name").val(formData.name);
+                $("#email").val(formData.email);
+                $("#comments").val(formData.comments);
+                $("#userRange").val(formData.userRange);
+                $("#selectedPlan").val(formData.selectedPlan);
+            }
+
+            // Clear local storage after populating the form
+            localStorage.removeItem("formData");
+
+            // Handle form submission
+            $("#signupForm").on("submit", function (event) {
+                event.preventDefault(); // Prevent form submission
+
+                // You can handle form submission logic here if needed
+                // For this example, we'll just show the "Submitted" message
+                showSubmittedMessage();
+            });
+
+            // Function to show the "Submitted" message
+            function showSubmittedMessage() {
+                $("#submittedMessage").show();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pricing Modal</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        /* Custom CSS for improved user interface */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        .navbar-brand:hover {
+            color: #ffffff;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f8f9fa;
+        }
+
+        .card {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+
+        }
+
+        .modal-content {
+            border-radius: 20px;
+        }
+
+        .modal-header {
+            background-color: #343a40;
+            color: white;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .modal-footer {
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Globex Corporation </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <!-- Heading and Description -->
+        <div class="text-center mb-4">
+            <h1>Pricing</h1>
+            <p>Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's
+                built with default Bootstrap components and utilities with little customization.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">Free</div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Price: $0/month</h5>
+                        <p class="card-text">10 users included<br>
+                            2 GB of storage<br>
+                            Email support<br>
+                            Help center access</p>
+                        <div class="pricing-button-containerd-flex justify-content-center ">
+                            <button class="btn btn-primary pricing-button " data-toggle="modal"
+                                data-target="#pricingModal">Sign up for free</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-header bg-info text-white ">Pro</div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Price: $20/month</h5>
+                        <p class="card-text">20 users included<br>
+                            10 GB of storage<br>
+                            email support<br>
+                            Help center access</p>
+                        <div class="pricing-button-containerd-flex justify-content-center">
+                            <button class="btn btn-primary pricing-button" data-toggle="modal"
+                                data-target="#pricingModal">Get started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white">Enterprise</div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Price: $30/month</h5>
+                        <p class="card-text">30 users included<br>
+                            15 GB of storage<br>
+                            Phone and email support<br>
+                            Help center access</p>
+                        <div class="pricing-button-containerd-flex justify-content-center">
+                            <button class="btn btn-primary pricing-button" data-toggle="modal"
+                                data-target="#pricingModal">Get started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Modal -->
+    <div class="modal fade" id="pricingModal" tabindex="-1" role="dialog" aria-labelledby="pricingModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pricingModalLabel">Order Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="orderForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="comments">Order Comments</label>
+                            <textarea class="form-control" id="comments" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="userRange">Number of Users:</label>
+                            <input type="range" class="form-control-range" id="userRange" min="0" max="100" step="10"
+                                value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="selectedPlan">Selected Plan:</label>
+                            <input type="text" class="form-control" id="selectedPlan" disabled>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery links here -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript code to highlight the plan based on the user range -->
+    <script>
+        $(document).ready(function () {
+            $("#userRange").on("input", function () {
+                var rangeValue = $(this).val();
+                var plan = Math.floor(rangeValue / 10) + 1;
+                $("#selectedPlan").val("Plan " + plan);
+            });
+        });
+    </script>
+    // <!-- JavaScript code to store form data in local storage -->
+    <script>
+        $(document).ready(function () {
+            // Check if there is any form data in local storage
+            var formData = JSON.parse(localStorage.getItem("formData"));
+            if (formData) {
+                // If form data exists, show the pricing modal
+                $("#name").val(formData.name);
+                $("#email").val(formData.email);
+                $("#comments").val(formData.comments);
+                $("#userRange").val(formData.userRange);
+                $("#selectedPlan").val(formData.selectedPlan);
+                $("#pricingModal").modal("show");
+                // Clear local storage after populating the form
+                localStorage.removeItem("formData");
+            }
+
+            // Handle form submission
+            $("#orderForm").on("submit", function (event) {
+                event.preventDefault(); // Prevent form submission
+                var formData = {
+                    name: $("#name").val(),
+                    email: $("#email").val(),
+                    comments: $("#comments").val(),
+                    userRange: $("#userRange").val(),
+                    selectedPlan: $("#selectedPlan").val()
+                };
+                localStorage.setItem("formData", JSON.stringify(formData));
+                // Redirect to the signup_form.html page
+                window.location.href = "signup_form.html";
+            });
+        });
+    </script>
+
+</body>
+
+</html>
